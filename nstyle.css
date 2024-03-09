@@ -1,0 +1,68 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    background-image: url(images/bg1.jpg);
+    background-position: center;
+    background-size: cover;
+    padding: 0 20px;
+    color: rgb(3, 3, 3);
+    text-align: center;
+}
+
+.logo-img {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    animation: scrapbookAnimation 2s ease-in-out; /* Scrapbook animation */
+}
+
+@keyframes scrapbookAnimation {
+    0% { transform: scale(0.2) rotate(-15deg); opacity: 0; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+h1, p, .continue-btn {
+    animation: fadeIn 2s ease-in-out; /* Fade-in animation */
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+h1 {
+    font-size: 32px;
+    margin: 20px 0;
+}
+
+p {
+    font-size: 18px;
+    margin-bottom: 30px;
+}
+
+.continue-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.continue-btn:hover {
+    background-color: #0056b3;
+}
