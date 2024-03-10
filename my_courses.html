@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses</title>
+    <!-- You can link your CSS file if you have one -->
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            background-color: #fff;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h2>My Courses</h2>
+    <ul id="courseList">
+        <!-- Courses will be dynamically added here -->
+    </ul>
+
+    <script>
+        // Fetch courses from the server
+        fetch('/courses')
+            .then(response => response.json())
+            .then(courses => {
+                const courseList = document.getElementById('courseList');
+
+                // Clear existing list items
+                courseList.innerHTML = '';
+
+                // Add each course to the list
+                courses.forEach(course => {
+                    const listItem = document.createElement('li');
+                    // Customize the content based on your course structure
+                    listItem.innerHTML = `
+                        <h3>${course.title}</h3>
+                        <p>${course.description}</p>
+                        <p>Level: ${course.level}</p>
+                        <p>Price: ${course.price}</p>
+                        <p>Video Link: <a href="${course.videoLink}" target="_blank">${course.videoLink}</a></p>
+                        <p>Assignment Link: <a href="${course.assignmentLink}" target="_blank">${course.assignmentLink}</a></p>
+                    `;
+                    courseList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching courses:', error);
+                // Handle error
+            });
+    </script>
+</body>
+</html>

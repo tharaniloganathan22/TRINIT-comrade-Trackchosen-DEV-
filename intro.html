@@ -8,6 +8,10 @@
     <link rel="stylesheet" href="slider.css">
 </head>
 <body>
+    <div class="header">
+        <h1>LINGUA CONNECT</h1>
+    </div>
+    
     <div class="slider-container">
         <div class="slide">
             <h2>Slide 1</h2>
@@ -29,8 +33,16 @@
         </label>
     </div>
 
-    <button id="continue-btn" class="continue-btn">Continue</button>
-
+    <button id="continue-btn" class="continue-btn" onclick="redirectToRegistration()">Continue</button>
     <script src="slider.js"></script>
+    <script>
+        function redirectToRegistration() {
+            if (document.getElementById('terms-checkbox').checked) {
+                window.location.href = "registration_options.html"; // Redirect to registration options page
+            } else {
+                alert("Please agree to the terms and conditions to continue.");
+            }
+        }
+    </script>
 </body>
 </html>

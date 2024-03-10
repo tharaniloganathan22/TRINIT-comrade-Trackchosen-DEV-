@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor Upload Page</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Upload Your Course Details</h2>
+        <form action="/upload_course" method="POST">
+            <label for="course_name">Course Name:</label><br>
+            <input type="text" id="course_name" name="course_name" required><br>
+            
+            <label for="description">Description:</label><br>
+            <textarea id="description" name="description" required></textarea><br>
+            
+            <label for="video_link">Video Link:</label><br>
+            <input type="text" id="video_link" name="video_link" required><br>
+
+            <label for="availability">Availability:</label><br>
+            <input type="text" id="availability" name="availability" required><br>
+
+            <label for="level">Level of Teaching:</label><br>
+            <select id="level" name="level">
+                <option value="normal">Normal</option>
+                <option value="medium">Medium</option>
+                <option value="tough">Tough</option>
+            </select><br>
+
+            <input type="hidden" id="pricing" name="pricing" value="0"> <!-- Hidden input for pricing -->
+
+            <input type="submit" value="Upload">
+        </form>
+    </div>
+
+    <script>
+        // Adjust price based on the selected level of teaching
+        document.getElementById('level').addEventListener('change', function() {
+            const level = this.value;
+            let price = 0;
+            switch (level) {
+                case 'normal':
+                    price = 10; // Set price for normal level
+                    break;
+                case 'medium':
+                    price = 20; // Set price for medium level
+                    break;
+                case 'tough':
+                    price = 30; // Set price for tough level
+                    break;
+                default:
+                    price = 0;
+            }
+            document.getElementById('pricing').value = price; // Update the hidden input value
+        });
+    </script>
+</body>
+</html>

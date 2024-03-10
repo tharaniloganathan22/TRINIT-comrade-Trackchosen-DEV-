@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register as Student</title>
+    <link rel="stylesheet" href="student.css">
+</head>
+<body>
+    <h2>Register as Student</h2>
+    <!-- Container for the registration form and login button -->
+    <div id="registrationContainer">
+        <!-- Registration form -->
+        <form id="registrationForm" action="/register_student" method="POST" onsubmit="return showConfirmation()">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+            
+            <label for="grade">Grade:</label>
+            <input type="text" id="grade" name="grade" required>
+            
+            <label for="school">School:</label>
+            <input type="text" id="school" name="school" required>
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <!-- Login button inside the container -->
+        <button id="loginButton" onclick="redirectToLogin()">Login</button>
+    </div>
+
+    <script>
+        // Function to show a confirmation message and redirect
+        function showConfirmation() {
+            // Check if the user is already registered (you need to implement this logic)
+            var isAlreadyRegistered = false; // You need to set this based on your backend logic
+            
+            // If the user is already registered, display a message and prevent form submission
+            if (isAlreadyRegistered) {
+                alert("You are already registered. Click 'OK' to login.");
+                redirectToLogin();
+                return false; // Prevent form submission
+            }
+            
+            else{
+            // If the user is not already registered, show a success message and redirect
+            alert("Registered successfully!");
+            window.location.href = "/student_home.html"; // Redirect to student home page
+            return true; // Allow form submission
+            }
+        }
+
+        // Function to redirect to the login page
+        function redirectToLogin() {
+            window.location.href = "/login.html";
+        }
+    </script>
+</body>
+</html>

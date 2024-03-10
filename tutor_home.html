@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tutor's Home Page</title>
+    <link rel="stylesheet" href="tutor_home.css">
+</head>
+<body>
+    <header>
+        <div class="header-title">
+            Tutor Home Page
+        </div>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown()">Logout</button>
+            <div class="dropdown-content" id="myDropdown">
+                <a href="#" onclick="logout()">Logout</a>
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">My Courses</a></li>
+            <li><a href="upload_course.html">Upload New Course</a></li>
+        </ul>
+    </nav>
+
+    <div class="content">
+        <div class="welcome-container">
+            <h2>Welcome to Your Tutor Home Page</h2>
+            <p>Here, you can manage your tutoring activities and interact with your students.</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Lingua Connect</p>
+    </footer>
+
+    <script src="javascript.js"></script>
+</body>
+</html>

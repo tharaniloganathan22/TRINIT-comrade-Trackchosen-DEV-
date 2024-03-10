@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload New Course</title>
+    <!-- You can link your CSS file if you have one -->
+    <style>
+        /* Add your CSS styles here */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"],
+        input[type="number"],
+        select,
+        input[type="url"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+        button[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>Upload New Course</h2>
+    <form id="courseForm">
+        <input type="text" name="title" placeholder="Course Title" required><br>
+        <textarea name="description" placeholder="Course Description" required></textarea><br>
+        <select name="level">
+            <option value="basic">Basic</option>
+            <option value="medium">Medium</option>
+            <option value="tough">Tough</option>
+        </select><br>
+        <input type="number" name="price" placeholder="Price" required><br>
+        <input type="url" name="videoLink" placeholder="Video Link" required><br>
+        <input type="url" name="assignmentLink" placeholder="Assignment Link" required><br>
+        <button type="submit">Upload Course</button>
+    </form>
+
+    <script>
+        document.getElementById('courseForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+
+            fetch('/upload-course', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    alert('Course uploaded successfully');
+                    window.location.href = '/my_courses.html'; // Redirect to the page showing all courses
+                } else {
+                    throw new Error('Error uploading course');
+                }
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                alert('Failed to upload course');
+            });
+        });
+    </script>
+</body>
+</html>

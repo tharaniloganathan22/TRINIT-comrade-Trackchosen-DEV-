@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Options</title>
+    <!-- Include any necessary stylesheets -->
+    <style>
+        /* Define your CSS styles here */
+        .container {
+            text-align: center;
+            margin-top: 50px;
+        }
+        .header h1 {
+            font-size: 36px;
+            color: #333;
+        }
+        .registration-options {
+            margin-top: 20px;
+        }
+        .register-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+        }
+        .register-btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Choose Your Registration Type</h1>
+        </div>
+        <div class="registration-options">
+            <button id="register-tutor-btn" class="register-btn" onclick="redirectToRegistration('tutor')">Register as Tutor</button>
+            <button id="register-learner-btn" class="register-btn" onclick="redirectToRegistration('learner')">Register as Learner</button>
+        </div>
+    </div>
+
+    <script>
+        function redirectToRegistration(type) {
+            if (type === 'tutor') {
+                window.location.href = "register_tutor.html"; // Redirect to tutor registration page
+            } else if (type === 'learner') {
+                window.location.href = "register_learner.html"; // Redirect to learner registration page
+            }
+        }
+    </script>
+</body>
+</html>
